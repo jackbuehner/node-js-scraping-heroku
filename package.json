@@ -1,0 +1,27 @@
+{
+  "name": "node-js-scraping-heroku",
+  "version": "0.0.0",
+  "description": "Try scraping with Node.js on Heroku",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tayutaedomo/node-js-scraping-heroku"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "Noboru Koike <tayutaedomo@gmail.com>",
+  "license": "MIT"
+}

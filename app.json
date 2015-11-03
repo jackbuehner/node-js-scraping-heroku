@@ -1,0 +1,7 @@
+{
+  "name": "Node.js Scraping",
+  "description": "Try scraping with Node.js on Heroku",
+  "repository": "https://github.com/tayutaedomo/node-js-scraping-heroku",
+  //"logo": "",
+  "keywords": ["node", "express"]
+}
