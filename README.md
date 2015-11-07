@@ -15,7 +15,7 @@ $ npm start
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
 ## Deploying to Heroku
-First, Setup [Heroku CLI](https://github.com/heroku/heroku)
+First, Setup [Heroku CLI](https://github.com/heroku/heroku).
 
 ```
 $ cd node-js-scraping-heroku
@@ -33,5 +33,12 @@ Alternatively, you can deploy your own copy of the app using the web-based flow:
 ## Enable debug log
 ```
 $ DEBUG=* npm start
+```
+
+## Auto-reload
+Use [node-dev](https://github.com/fgnass/node-dev).
+```
+$ npm i -g node-dev # Install
+$ node-dev index.js
 ```
 
