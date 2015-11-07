@@ -1,6 +1,7 @@
 # node-js-scraping-heroku
 Try scraping with Node.js on Heroku
 
+
 # Setup for Mac
 ## Running Locally
 
@@ -26,4 +27,11 @@ $ heroku open
 Alternatively, you can deploy your own copy of the app using the web-based flow:
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+
+# Development
+## Enable debug log
+```
+$ DEBUG=* npm start
+```
 
