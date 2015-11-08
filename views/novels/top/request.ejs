@@ -9,15 +9,15 @@
   <p>Please input request URL.</p>
   <form method="post" action="./request">
   <p>
-    http://ncode.syosetu.com/<input type="text" name="ncode" value="<%= params.ncode %>">/<br>
+    http://ncode.syosetu.com/<input type="text" name="ncode" value="<%= data.params.ncode %>">/<br>
   </p>
   <div>
     <input type="submit">
   </div>
   </form>
-  <% if (page) { %>
+  <% if (data.page) { %>
     <ul>
-      <li><%= page.title %></li>
+      <li><%= data.page.title %></li>
     </ul>
   <% } %>
 </body>

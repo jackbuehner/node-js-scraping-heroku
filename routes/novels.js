@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/top/request', function(req, res, next) {
-  res.render('novels/top/request', { params: {} });
+  res.render('novels/top/request', { data: { params: {} } });
 });
 
 router.post('/top/request', function(req, res, next) {
@@ -48,7 +48,7 @@ router.post('/top/request', function(req, res, next) {
     });
   }
 
-  res.render('novels/top/request', { params: req.body, page: result });
+  res.render('novels/top/request', { data: { params: req.body, page: result } });
 });
 
 
