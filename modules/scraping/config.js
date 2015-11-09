@@ -9,8 +9,10 @@ config = {
   // Session
   cookieSecret: process.env.COOKIE_SECRET || 'myCookieSecret',
   cookiePath: process.env.COOKIE_PATH || '/',
-  cookieMaxAge: process.env.COOKIE_PATH || 1 * 24 * 60 * 60 * 1000,
-  cookieSessionKey: process.env.SESSION_KEY || 'sid'
+  cookieMaxAge: process.env.COOKIE_PATH || 7 * 24 * 60 * 60 * 1000,
+  cookieSessionKey: process.env.COOKIE_SESSION_KEY || 'sid',
+  sessionStorePrefix: process.env.SESSION_STORE_PREFIX || 'session:',
+  sessionStoreDisableTtl: process.env.SESSION_STORE_DISABLE_TTL || false
 };
 debug(config);
 module.exports = config;

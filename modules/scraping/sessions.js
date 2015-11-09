@@ -2,8 +2,12 @@ var expressSession = require('express-session');
 var RedisStore = require('connect-redis')(expressSession);
 var debug = require('debug')('scraping:sessions');
 
-module.exports = function Sessions(config) {
-  var storeOptions = { url: config.redisUrl };
+module.exports = function(config) {
+  var storeOptions = {
+    url: config.redisUrl,
+    prefix: config.sessionStorePrefix,
+    disableTTL: config.sessionStoreDisableTtl
+  };
   var store = new RedisStore(storeOptions);
   debug(storeOptions);
 
