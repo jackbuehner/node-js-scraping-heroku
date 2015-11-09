@@ -47,23 +47,28 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
+    console.log(err.message);
+    console.log(err.stack);
+    //res.status(err.status || 500);
+    //res.render('error', {
+    //  message: err.message,
+    //  error: err
+    //});
   });
 }
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
+if (app.get('env') === 'production') {
+  app.use(function(err, req, res, next) {
+    console.log(err.message);
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: {}
+    });
   });
-});
+}
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
