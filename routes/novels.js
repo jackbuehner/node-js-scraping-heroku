@@ -4,6 +4,7 @@ var router = express.Router();
 var request = require('request');
 var cheerio = require('cheerio');
 var models = require('scraping/models');
+var debug = require('debug')('scraping:routes:novels');
 
 router.get('/', function(req, res, next) {
   //res.send('respond with a resource');
@@ -12,8 +13,9 @@ router.get('/', function(req, res, next) {
 
 router.get('/top/request', function(req, res, next) {
   var model = new models.NovelsTopRequest(req.session.id);
-  var page = model.retrieve();
-  res.render('novels/top/request', { data: { params: {}, page: page } });
+  model.retrieve(function(page) {
+    res.render('novels/top/request', { data: { params: {}, page: page } });
+  });
 });
 
 router.post('/top/request', function(req, res, next) {
