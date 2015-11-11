@@ -16,9 +16,8 @@
   </div>
   </form>
   <% if (data.page) { %>
-    <ul>
-      <li><%= data.page.title %></li>
-    </ul>
+    <h2>Stored Data</h2>
+    <p><%= JSON.stringify(data.page) %></p>
   <% } %>
 </body>
 </html>
