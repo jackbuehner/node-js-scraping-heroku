@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Novel Top</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1>Novel Top Recommend</h1>
+<p>Please input request URL.</p>
+<form method="post" action="./recommend">
+  <p>
+    http://ncode.syosetu.com/<input type="text" name="ncode" value="<%= data.params.ncode %>">/<br>
+  </p>
+  <div>
+    <input type="submit">
+  </div>
+</form>
+</body>
+</html>
