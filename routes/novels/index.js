@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
 router.get('/top/request', require('./top/request/get'));
 router.post('/top/request', require('./top/request/post'));
 router.get('/top/recommend', require('./top/recommend/get'));
+router.post('/top/recommend', require('./top/recommend/post'));
 
 module.exports = router;
 
