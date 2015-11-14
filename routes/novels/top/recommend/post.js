@@ -27,6 +27,11 @@ module.exports = function(req, res, next) {
         //var novel = new models.Novel(req.session.id);
         //novel.store(recommends[0]);
 
+        var ncodes = [];
+        ncodes.push(recommends[0].ncode);
+        ncodes.push(recommends[1].ncode);
+        scrapeNovels(req.session.id, ncodes);
+
         res.render('novels/top/recommend',
           {
             data: {
@@ -40,4 +45,31 @@ module.exports = function(req, res, next) {
     res.render('novels/top/recommend', { data: { params: req.body } });
   }
 };
+
+function scrapeNovels(session_id, ncodes) {
+  if (!ncodes) {
+    return;
+  }
+
+  var requested_at = new Date();
+
+  ncodes.forEach(function(ncode) {
+    var url = 'http://ncode.syosetu.com/novelview/infotop/ncode/' + ncode + '/';
+
+    client.fetch(url)
+      .then(function (result) {
+        var novelModel = new models.Novel(session_id);
+
+        var novelInfo = html.extractNovelInfo(result.$);
+        novelInfo['requested_at'] = requested_at;
+        novelInfo['responded_at'] = new Date();
+
+        novelModel.store(novelInfo);
+      })
+      .catch(function (err) {
+        debug(err);
+        console.log(err);
+      });
+  });
+}
 
