@@ -14,6 +14,13 @@
   <div>
     <input type="submit">
   </div>
+  <% if (data.novels && data.novelsStr) { %>
+    <h2>Stored Novels</h2>
+    <p>Count: <string><%= data.novels.length %></string></p>
+    <pre>
+      <code><%= data.novelsStr %></code>
+    </pre>
+  <% } %>
   <% if (data.recommends_str) { %>
     <h2>Recommends</h2>
     <p>Count: <strong><%= data.recommends.length %></strong></p>
