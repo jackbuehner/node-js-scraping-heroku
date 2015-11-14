@@ -1,7 +1,7 @@
 var redis = require('scraping/redis');
 var debug = require('debug')('scraping:models:novels_top_request');
 
-var NovelsTopRequest = function(keyPrefix) {
+module.exports = function NovelsTopRequest(keyPrefix) {
   var keyPrefix = keyPrefix;
   var expireTime = 24 * 60 * 60;
 
@@ -36,6 +36,4 @@ var NovelsTopRequest = function(keyPrefix) {
     }
   };
 };
-
-module.exports = NovelsTopRequest;
 
