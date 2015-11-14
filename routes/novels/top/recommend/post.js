@@ -32,7 +32,7 @@ module.exports = function(req, res, next) {
             data: {
               params: req.body,
               recommends: recommends,
-              recommendsStr: beautify(JSON.stringify(recommends), { indent_size: 2 })
+              recommendsStr: recommends ? beautify(JSON.stringify(recommends), { indent_size: 2 }) : null
             }
           });
       });

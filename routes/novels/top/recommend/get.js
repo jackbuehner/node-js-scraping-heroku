@@ -4,12 +4,12 @@ var debug = require('debug')('scraping:routes/novels/top/recommend/get');
 
 module.exports = function(req, res, next) {
   var novel = new models.Novel(req.session.id);
-  novel.findAll(function(err, value) {
+  novel.findAll(function(err, novels) {
     res.render('novels/top/recommend', {
       data: {
         params: req.body,
-        novels: value,
-        novelsStr: beautify(JSON.stringify(value), { indent_size: 2 })
+        novels: novels,
+        novelsStr: novels ? beautify(JSON.stringify(novels), { indent_size: 2 }) : null
       }
     });
   });
