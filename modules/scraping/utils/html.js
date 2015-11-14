@@ -62,6 +62,9 @@ function extractNovelInfo($) {
   data['title'] = $('h1 a').text();
   data['url'] = $('h1 a').attr('href');
 
+  var matches = data['url'].match(/\/(n[0-9a-z]+)\//);
+  data['ncode'] = matches[1];
+
   var matches = $('#pre_info').text().match(/(連載中|完結済)全(\d+)部/);
   data['state'] = matches[1];
   data['pageCount'] = matches[2];
