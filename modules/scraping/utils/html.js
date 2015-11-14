@@ -120,13 +120,17 @@ function extractNovelInfo($) {
 
       case 5:
         var matches = $(element).text().match(/([\d,]+)/);
-        data['totalRating'] = matches[1].replace(/,/g, '');
+        if (matches) { // Other case is '※非公開'
+          data['totalRating'] = matches[1].replace(/,/g, '');
+        }
         break;
 
       case 6:
         var matches = $(element).text().match(/([\d,]+)pt/g);
-        data['compositionRating'] = matches[0].replace(/[,pt]/g, '');
-        data['storyRating'] = matches[1].replace(/[,pt]/g, '');
+        if (matches) { // Other case is '※非公開'
+          data['compositionRating'] = matches[0].replace(/[,pt]/g, '');
+          data['storyRating'] = matches[1].replace(/[,pt]/g, '');
+        }
         break;
 
       case 8:
