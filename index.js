@@ -12,6 +12,7 @@ var sessions = require('scraping/sessions');
 var config = require('scraping/config');
 
 var novels = require('./routes/novels');
+var routes = require('./routes');
 
 var app = express();
 
@@ -31,10 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(sessions(config));
 
 app.use('/novels', novels);
-
-app.get('/', function(request, response) {
-  response.send('Hello World!')
-});
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
