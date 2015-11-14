@@ -1,8 +1,9 @@
 var client = require('cheerio-httpcli');
+var beautify = require('js-beautify').js_beautify;
 var debug = require('debug')('scraping:routes/novels/top/recommend/post');
 
 module.exports = function(req, res, next) {
-  var data = [];
+  var recommends = [];
   var url;
 
   if (req.body.ncode) {
@@ -11,7 +12,7 @@ module.exports = function(req, res, next) {
     client.fetch(url)
       .then(function (result) {
         result.$('.recommend_novel').each(function(index, element){
-          data.push(extractRecommendData(result.$, element));
+          recommends.push(extractRecommendData(result.$, element));
         });
       })
       .catch(function (err) {
@@ -19,8 +20,15 @@ module.exports = function(req, res, next) {
         console.log(err);
       })
       .finally(function () {
-        debug(data);
-        res.render('novels/top/recommend', { data: { params: req.body } });
+        debug(recommends);
+        res.render('novels/top/recommend',
+          {
+            data: {
+              params: req.body,
+              recommends: recommends,
+              recommends_str: beautify(JSON.stringify(recommends), { indent_size: 2 })
+            }
+          });
       });
 
   } else {

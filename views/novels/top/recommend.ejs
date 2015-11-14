@@ -14,6 +14,13 @@
   <div>
     <input type="submit">
   </div>
+  <% if (data.recommends_str) { %>
+    <h2>Recommends</h2>
+    <p>Count: <strong><%= data.recommends.length %></strong></p>
+    <pre>
+      <code><%= data.recommends_str %></code>
+    </pre>
+  <% } %>
 </form>
 </body>
 </html>
