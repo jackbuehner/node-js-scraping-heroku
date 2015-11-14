@@ -48,22 +48,26 @@ Novel.prototype.findAll = function(callback) {
 
   // TODO: Refactoring to resolve callback nest
   this.redisClient.keys(key, function(err, value) {
+    debug('KEYS %s -> %s', key, value);
     if (err) {
       callback(err);
+      return;
     }
     if (!value) {
       callback(null, null);
+      return;
     }
-    debug('KEYS %s -> %s', key, value);
 
     that.redisClient.mget(value, function(err, values) {
+      debug('MGET %s -> %s', value, values);
       if (err) {
         callback(err);
+        return;
       }
-      if (!values) {
+      if (!value) {
         callback(null, null);
+        return;
       }
-      debug('MGET %s -> %s', value, values);
 
       var novels = [];
       values.forEach(function(str) {
