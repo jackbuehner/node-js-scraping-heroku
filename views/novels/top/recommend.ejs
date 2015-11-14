@@ -21,11 +21,11 @@
       <code><%= data.novelsStr %></code>
     </pre>
   <% } %>
-  <% if (data.recommends_str) { %>
+  <% if (data.recommends && data.recommendsStr) { %>
     <h2>Recommends</h2>
     <p>Count: <strong><%= data.recommends.length %></strong></p>
     <pre>
-      <code><%= data.recommends_str %></code>
+      <code><%= data.recommendsStr %></code>
     </pre>
   <% } %>
 </form>

@@ -1,4 +1,5 @@
 var client = require('cheerio-httpcli');
+var models = require('scraping/models');
 var beautify = require('js-beautify').js_beautify;
 var debug = require('debug')('scraping:routes/novels/top/recommend/post');
 
@@ -21,16 +22,19 @@ module.exports = function(req, res, next) {
       })
       .finally(function () {
         debug(recommends);
+
+        //var novel = new models.Novel(req.session.id);
+        //novel.store(recommends[0]);
+
         res.render('novels/top/recommend',
           {
             data: {
               params: req.body,
               recommends: recommends,
-              recommends_str: beautify(JSON.stringify(recommends), { indent_size: 2 })
+              recommendsStr: beautify(JSON.stringify(recommends), { indent_size: 2 })
             }
           });
       });
-
   } else {
     res.render('novels/top/recommend', { data: { params: req.body } });
   }
