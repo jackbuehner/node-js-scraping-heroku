@@ -3,7 +3,7 @@ var debug = require('debug')('scraping:config');
 
 config = {
   // Services
-  redisUrl: process.env.REDIS_URI || 'redis://:@127.0.0.1:6379',
+  redisUrl: process.env.REDIS_URL || 'redis://:@127.0.0.1:6379',
   port: int(process.env.PORT) || 5000,
 
   // Session
