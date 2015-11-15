@@ -40,7 +40,22 @@ $ npm start
 ```
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-# Deploying to Heroku
+
+# Development
+## Enable debug log
+```
+$ DEBUG=* npm start
+```
+
+## Auto-reload
+Use [node-dev](https://github.com/fgnass/node-dev).
+```
+$ npm i -g node-dev # Install
+$ node-dev index.js
+```
+
+
+# Deploy to Heroku
 First, Setup [Heroku CLI](https://github.com/heroku/heroku).
 
 Create heroku app.
@@ -85,19 +100,6 @@ Alternatively, you can deploy your own copy of the app using the web-based flow:
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 
-# Development
-## Enable debug log
-```
-$ DEBUG=* npm start
-```
-
-## Auto-reload
-Use [node-dev](https://github.com/fgnass/node-dev).
-```
-$ npm i -g node-dev # Install
-$ node-dev index.js
-```
-
 # Plugins
 ## heroku-redis
 https://devcenter.heroku.com/articles/heroku-redis#using-the-cli
@@ -107,6 +109,7 @@ heroku plugins:install heroku-redis
 heroku redis:cli -a <your app id> -c <your app id>
 ```
 
+# Addons
 ## Papertrail
 See https://devcenter.heroku.com/articles/papertrail
 
