@@ -40,13 +40,43 @@ $ npm start
 ```
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-## Deploying to Heroku
+# Deploying to Heroku
 First, Setup [Heroku CLI](https://github.com/heroku/heroku).
 
+Create heroku app.
 ```
 $ cd node-js-scraping-heroku
 $ heroku create
+```
+
+Install redis service.
+```
+$ heroku addons:create heroku-redis:hobby-dev
+$ heroku addons | grep REDIS
+ └─ as REDIS
+$ heroku config | grep REDIS
+REDIS_URL: redis://<your redis endpoint>:<port>
+```
+
+Set config variables.
+```
+$ heroku config:set "DEBUG=*"
+$ heroku config
+```
+
+Push source code to remove.
+```
 $ git push heroku master
+Counting objects: 256, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (217/217), done.
+Writing objects: 100% (256/256), 28.50 KiB | 0 bytes/s, done.
+Total 256 (delta 83), reused 3 (delta 0)
+...
+```
+
+Open index page on your browser.
+```
 $ heroku open
 ```
 
@@ -66,5 +96,13 @@ Use [node-dev](https://github.com/fgnass/node-dev).
 ```
 $ npm i -g node-dev # Install
 $ node-dev index.js
+```
+
+## heroku-redis plugin
+https://devcenter.heroku.com/articles/heroku-redis#using-the-cli
+
+```
+heroku plugins:install heroku-redis
+heroku redis:cli -a <your app id> -c <your app id>
 ```
 
