@@ -58,7 +58,7 @@ $ heroku config | grep REDIS
 REDIS_URL: redis://<your redis endpoint>:<port>
 ```
 
-Set config variables.
+Set config variables if you need.
 ```
 $ heroku config:set "DEBUG=*"
 $ heroku config
