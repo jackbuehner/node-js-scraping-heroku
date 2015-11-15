@@ -98,11 +98,26 @@ $ npm i -g node-dev # Install
 $ node-dev index.js
 ```
 
-## heroku-redis plugin
+# Plugins
+## heroku-redis
 https://devcenter.heroku.com/articles/heroku-redis#using-the-cli
 
 ```
 heroku plugins:install heroku-redis
 heroku redis:cli -a <your app id> -c <your app id>
+```
+
+## Papertrail
+See https://devcenter.heroku.com/articles/papertrail
+
+```
+heroku addons:create papertrail
+```
+
+## RedisMonitor
+See https://devcenter.heroku.com/articles/redismonitor#adding-redismonitor
+
+```
+heroku addons:create redismonitor:free --url <redis url>
 ```
 
