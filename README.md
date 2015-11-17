@@ -99,6 +99,8 @@ Alternatively, you can deploy your own copy of the app using the web-based flow:
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+## Continuous Delivery
+[ ![Codeship Status for tayutaedomo/node-js-scraping-heroku](https://codeship.com/projects/c5e20a80-6dc9-0133-e702-666194911eaf/status?branch=master)](https://codeship.com/projects/115729)
 
 # Plugins
 ## heroku-redis
